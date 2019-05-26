@@ -38,5 +38,53 @@ WINDOWS:
     widgets: 组合的widget或者自定义widget 统一管理  
 
 
+## 一.登录页面构建笔记
+1.  color: Color.fromARGB(255, 43, 140, 251),  颜色rgb的值； 
+    color的值可以是以下方式构造：
 
+        Color c = const Color(0xFF42A5F5);
+        Color c = const Color.fromARGB(0xFF, 0x42, 0xA5, 0xF5);
+        Color c = const Color.fromARGB(255, 66, 165, 245);
+        Color c = const Color.fromRGBO(66, 165, 245, 1.0); 
+    详情API文档： https://api.flutter.dev/flutter/dart-ui/Color-class.html 
 
+2. 设置图片圆角 
+ 
+    装饰窗口 DecoratedBox 并不管用， 使用``ClipRRect``可实现效果。  
+
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0), //10像素圆角
+            child: Image.asset(
+                'resources/images/logo.jpeg',
+                width: 80.0,
+            ),
+        ) 
+
+   参考API: https://api.flutter.dev/flutter/widgets/ClipRRect-class.html 
+
+3. ThemeData  设置主题颜色  
+
+    ``primarySwatch`` 替换为 ``primaryColor`` 
+
+        theme: ThemeData(
+            primaryColor: Color.fromARGB(255, 43, 140, 251),
+        ),
+
+4. 使用iconfont 
+  
+    从iconfont网站上下载选好的icon,把``.ttf`` 字体文件放在项目目录中， 
+    路径自定义，本项目中``assets/fonts/iconfont.ttf `` 
+    
+    配置pubspec.yaml文件：
+
+        fonts:
+            - family: myIconfont
+            fonts:
+                - asset: assets/fonts/iconfont.ttf
+
+    使用： ``IconData(int codePoint, { String fontFamily, String fontPackage, bool matchTextDirection: false })`` 
+
+        Icon(IconData(0xe758, fontFamily: 'myIconfont')
+
+        // codePoint 对应 iconfont.ttf中的Unicode码，在iconfont添加icon时可查看 
+        // fontFamily 对应pubspec.yaml 中配置的 family: myIconfont,字体可配置多个 
