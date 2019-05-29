@@ -1,0 +1,22 @@
+name: rewa_icon
+description: The font for my application
+author: rewa <fangrh0627@163.com>
+homepage: http://www.rewafang.cn/
+version: 1.0.0
+
+environment:
+  sdk: ">=2.0.0-dev.28.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  recase: "^2.0.0+1"
+
+flutter:
+  fonts:
+    - family: RewaIcon
+      fonts:
+        - asset: lib/fonts/iconfont.ttf
+          weight: 600

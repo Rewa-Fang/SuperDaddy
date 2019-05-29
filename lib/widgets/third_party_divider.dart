@@ -19,7 +19,7 @@ class ThirdPartyDivider extends StatelessWidget {
               style: TextStyle(color: Colors.grey),
             ),
           ),
-          _solidLine(),
+          _solidLine()
         ],
       ),
     );

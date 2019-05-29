@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:super_daddy/views/home.dart';
 import 'package:super_daddy/views/login.dart';
+import 'package:super_daddy/views/register.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -11,6 +13,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color.fromARGB(255, 43, 140, 251),
       ),
+      routes: {
+        "home_page":(context)=>HomePage(),
+        "login_page":(context)=>LoginPage(),
+        "register_page":(context)=>Register(),
+      },
       home: LoginPage(),
     );
   }

@@ -38,7 +38,7 @@ WINDOWS:
     widgets: 组合的widget或者自定义widget 统一管理  
 
 
-## 一.登录页面构建笔记
+## 笔记
 1.  color: Color.fromARGB(255, 43, 140, 251),  颜色rgb的值； 
     color的值可以是以下方式构造：
 
@@ -87,4 +87,43 @@ WINDOWS:
         Icon(IconData(0xe758, fontFamily: 'myIconfont')
 
         // codePoint 对应 iconfont.ttf中的Unicode码，在iconfont添加icon时可查看 
-        // fontFamily 对应pubspec.yaml 中配置的 family: myIconfont,字体可配置多个 
+        // fontFamily 对应pubspec.yaml 中配置的 family: myIconfont,字体可配置多个   
+
+5. 命名路由  
+    在``MaterialApp()``中添加配置``routes``：
+ 
+        routes: {
+            "home_page":(context)=>HomePage(),
+            "login_page":(context)=>LoginPage(),
+            "register_page":(context)=>Register(),
+        }, 
+
+    命名方式跳转： 
+
+        Navigator.pushNamed(context, 'register_page');  
+
+    传参 :
+
+        Navigator.pushNamed(context, 'home_page',arguments: user);  
+
+6. iconfont 引入优化 
+
+ 编辑 myicon.dart 文件 
+
+    import 'package:flutter/widgets.dart';
+
+    class MyIcon {
+        static const IconData wechat = const _MyIconData(0xe758);
+        static const IconData qq = const _MyIconData(0xe601);
+        static const IconData weibo = const _MyIconData(0xe611);
+    }
+
+    class _MyIconData extends IconData {
+        const _MyIconData(int codePoint) : super(codePoint, fontFamily: 'myIconfont');
+    }
+
+在使用icon时，引入 myicon.dart 文件 
+
+ 使用：     
+ 
+    Icon(MyIcon.wechat)

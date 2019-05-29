@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_daddy/widgets/third_party_divider.dart';
+import 'package:super_daddy/myIcon/myIcon.dart';
 
 class ThridPartyLoginButton extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _ThridPartyLoginButtonState extends State<ThridPartyLoginButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(50.0, 80.0, 50.0, 10.0),
+      padding: EdgeInsets.fromLTRB(50.0, 50.0, 50.0, 10.0),
       child: Column(
         children: <Widget>[
           ThirdPartyDivider(),
@@ -19,12 +20,12 @@ class _ThridPartyLoginButtonState extends State<ThridPartyLoginButton> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                _thirdLoginBtn(Icon(IconData(0xe758, fontFamily: 'myIconfont')),
-                    Color.fromARGB(255, 140, 220, 80)),
-                _thirdLoginBtn(Icon(IconData(0xe601, fontFamily: 'myIconfont')),
-                    Color.fromARGB(255, 38, 184, 242)),
-                _thirdLoginBtn(Icon(IconData(0xe611, fontFamily: 'myIconfont')),
-                    Color.fromARGB(255, 227, 28, 52)),
+                _thirdLoginBtn(
+                    Icon(MyIcon.wechat), Color.fromARGB(255, 140, 220, 80)),
+                _thirdLoginBtn(
+                    Icon(MyIcon.qq), Color.fromARGB(255, 38, 184, 242)),
+                _thirdLoginBtn(
+                    Icon(MyIcon.weibo), Color.fromARGB(255, 227, 28, 52)),
               ],
             ),
           ),
