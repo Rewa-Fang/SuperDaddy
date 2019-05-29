@@ -68,6 +68,7 @@ WINDOWS:
 
         theme: ThemeData(
             primaryColor: Color.fromARGB(255, 43, 140, 251),
+            //这里有很多可设置APP中统一风格的主题 参考API
         ),
 
 4. 使用iconfont 
@@ -125,5 +126,8 @@ WINDOWS:
 在使用icon时，引入 myicon.dart 文件 
 
  使用：     
- 
+
     Icon(MyIcon.wechat)
+ 
+
+
