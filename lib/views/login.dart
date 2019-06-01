@@ -137,22 +137,15 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildBody() {
     return Padding(
-      padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
+      padding: EdgeInsets.fromLTRB(50.0, 25.0, 50.0, 10.0),
       child: Form(
         key: _formKey, //设置globalKey，用于后面获取FormState
         child: Column(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(top: 15.0),
-              child: Column(
-                children: <Widget>[
-                  _usernameInput(),
-                  _pwdInput(),
-                  _loginBtn(),
-                  _registerForgetPwd()
-                ],
-              ),
-            ),
+            _usernameInput(),
+            _pwdInput(),
+            _loginBtn(),
+            _registerForgetPwd()
           ],
         ),
       ),
@@ -178,7 +171,7 @@ class Logo extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 80.0),
       alignment: Alignment.center,
-      color: Color.fromARGB(255, 43, 140, 251),
+      color: Colors.orange[700],
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10.0), //10像素圆角
         child: Image.asset(

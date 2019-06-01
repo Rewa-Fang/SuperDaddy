@@ -11,15 +11,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Color.fromARGB(255, 17, 12, 8),
-        buttonColor: Color.fromARGB(255, 91, 10, 22),
+        primaryColor: Colors.orange[700],
+        buttonColor: Colors.orange[700],
       ),
       routes: {
         "home_page":(context)=>HomePage(),
         "login_page":(context)=>LoginPage(),
         "register_page":(context)=>Register(),
       },
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }
