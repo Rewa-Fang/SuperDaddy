@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         "login_page":(context)=>LoginPage(),
         "register_page":(context)=>Register(),
       },
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }

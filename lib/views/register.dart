@@ -83,7 +83,7 @@ class _RegisterState extends State<Register> {
                   height: 36.0,
                   child: new Text(
                     '获取验证码',
-                    style: new TextStyle(fontSize: 16.0,color: Colors.blue),
+                    style: new TextStyle(fontSize: 16.0, color: Colors.blue),
                   ),
                 ),
               ),
@@ -95,20 +95,39 @@ class _RegisterState extends State<Register> {
   Widget _registerBtn() {
     return Padding(
       padding: EdgeInsets.only(top: 50.0),
-      child: Row(
+      child: Column(
         children: <Widget>[
-          Expanded(
-            child: RaisedButton(
-              textColor: Colors.white,
-              padding: EdgeInsets.all(12.0),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
-              child: Text(
-                '立即注册',
-                style: TextStyle(fontSize: 18.0),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(12.0),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                  child: Text(
+                    '立即注册',
+                    style: TextStyle(fontSize: 18.0),
+                  ),
+                  onPressed: () {},
+                ),
+              )
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 15.0),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              InkWell(
+                child: Text('已有账号，立即登录 >',
+                    style: TextStyle(color: Colors.blue, fontSize: 16.0)),
+                onTap: () {
+                  Navigator.pushNamed(context, 'login_page');
+                },
               ),
-              onPressed: () {},
-            ),
+            ],
           )
         ],
       ),
