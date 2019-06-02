@@ -32,7 +32,9 @@ class _RegisterState extends State<Register> {
             _pwdInput(),
             _registerBtn(),
             //同意协议复选框及协议链接
-            _agreementCheckBox()
+            Expanded(
+              child: _agreementCheckBox(),
+            ),
           ],
         ),
       ),
@@ -116,19 +118,19 @@ class _RegisterState extends State<Register> {
           ),
           Padding(
             padding: EdgeInsets.only(top: 15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                InkWell(
+                  child: Text('已有账号，立即登录 >',
+                      style: TextStyle(color: Colors.blue, fontSize: 16.0)),
+                  onTap: () {
+                    Navigator.pushNamed(context, 'login_page');
+                  },
+                ),
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              InkWell(
-                child: Text('已有账号，立即登录 >',
-                    style: TextStyle(color: Colors.blue, fontSize: 16.0)),
-                onTap: () {
-                  Navigator.pushNamed(context, 'login_page');
-                },
-              ),
-            ],
-          )
         ],
       ),
     );

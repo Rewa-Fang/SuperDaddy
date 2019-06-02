@@ -22,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       child: TextFormField(
         controller: _unameController,
         decoration: InputDecoration(
-          labelText: '用户名',
+          // labelText: '用户名',
           hintText: '手机号或邮箱',
           icon: Icon(Icons.person),
         ),
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
     return TextFormField(
       controller: _pwdController,
       decoration: InputDecoration(
-        labelText: "密码",
+        // labelText: "密码",
         hintText: "您的登录密码",
         icon: Icon(Icons.lock),
       ),
@@ -159,7 +159,13 @@ class _LoginPageState extends State<LoginPage> {
         title: Text("奶爸，你好！"),
       ),
       body: Column(
-        children: <Widget>[Logo(), _buildBody(), ThridPartyLoginButton()],
+        children: <Widget>[
+          Logo(),
+          _buildBody(),
+          Expanded(
+            child: ThridPartyLoginButton(),
+          ),
+        ],
       ),
     );
   }
@@ -169,7 +175,7 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 80.0),
+      padding: EdgeInsets.symmetric(vertical: 50.0),
       alignment: Alignment.center,
       color: Colors.orange[700],
       child: ClipRRect(
