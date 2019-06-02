@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var _diaryDataList = [1, 2, 3, 4, 5, 11, 22, 33, 44, 55, 16, 27, 38, 49, 51];
-
+  var _selectedIndex = 1;
   // @override
   // void initState() {
   //   // _retrieveData();
@@ -35,8 +35,34 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        // 底部导航
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            title: Text('Business'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(MyIcon.user),
+            title: Text('School'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        fixedColor: Colors.blue,
+        onTap: _onItemTapped,
+      ),
       body: _buildBody(context),
     );
+  }
+
+  _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   Widget _buildBody(BuildContext context) {
