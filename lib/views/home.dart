@@ -9,7 +9,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var _diaryDataList = [1, 2, 3, 4, 5, 11, 22, 33, 44, 55, 16, 27, 38, 49, 51];
-  var _selectedIndex = 1;
+  var _selectedIndex = 0;
+  Color greyColor = Colors.grey;
   // @override
   // void initState() {
   //   // _retrieveData();
@@ -17,6 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = Theme.of(context).primaryColor;
     return Scaffold(
       appBar: AppBar(
         title: Text("幸路历程"),
@@ -35,25 +37,40 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        // 底部导航
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(MyIcon.user),
-            title: Text('School'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: _onItemTapped,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.orange[700],
+        child: Icon(MyIcon.naiping),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.home,
+                color: _selectedIndex == 0 ? primaryColor : greyColor,
+              ),
+              onPressed: () {
+                _onItemTapped(0);
+              },
+            ),
+            //sizedBox 为凹凸按钮占位
+            SizedBox(),
+            IconButton(
+              icon: Icon(
+                MyIcon.user,
+                color: _selectedIndex == 1 ? primaryColor : greyColor,
+              ),
+              onPressed: () {
+                _onItemTapped(1);
+              },
+            ),
+          ],
+        ),
       ),
       body: _buildBody(context),
     );
@@ -67,7 +84,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildBody(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.0),
+      padding: EdgeInsets.fromLTRB(5.0, 10.0, 5.0, 30.0),
       child: ListView.builder(
         itemCount: _diaryDataList.length,
         itemBuilder: _buildItem,
