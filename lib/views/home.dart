@@ -66,8 +66,7 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(
                 MyIcon.user,
-                color: _selectedIndex == 1 ? primaryColor : greyColor,
-              ),
+               ),
               onPressed: () {
                 _onItemTapped(1);
               },

@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Text('忘记密码？',
                 style: TextStyle(color: Colors.blue, fontSize: 16.0)),
             onTap: () {
-              showTipsDialog('Hi', '还没做好，重新注册一个吧！');
+              showTipsDialog('Hi', '还个没做好，重新注册一个吧！');
             },
           ),
         ],

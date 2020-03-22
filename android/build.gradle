@@ -12,9 +12,10 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        center()
     }
 }
+
 
 rootProject.buildDir = '../build'
 subprojects {
